@@ -250,5 +250,16 @@ use Illuminate\Support\Facades\Route;
         Route::post('delete', [TrainerController::class, 'delete'])->name('delete')->middleware('check.permission');
     });
 
+    //Question
+    Route::group(['prefix' => 'category', 'as' => 'category.'], function () {
+        Route::get('/show', [CategoryController::class, 'show'])->name('show')->middleware('check.permission');
+        Route::post('/list', [CategoryController::class, 'list'])->name('list');
+        Route::get('create', [CategoryController::class, 'create'])->name('create')->middleware('check.permission');
+        Route::post('store', [CategoryController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('edit')->middleware('check.permission');
+        Route::post('update/{id}', [CategoryController::class, 'update'])->name('update');
+        Route::post('delete', [CategoryController::class, 'delete'])->name('delete')->middleware('check.permission');
+    });
+
 });
 Auth::routes();

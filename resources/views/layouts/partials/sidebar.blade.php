@@ -85,6 +85,10 @@
                             <li><a href="{{ route('trainer.show') }}">Trainer</a></li>
                             @endcan
 
+                            @can('category.show')
+                            <li><a href="{{ route('category.show') }}">Category</a></li>
+                            @endcan
+
                         </ul>
                     </li>
                     @endcan

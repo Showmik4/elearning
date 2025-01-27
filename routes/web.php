@@ -23,6 +23,7 @@ use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\SurveyFormController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserTypeController;
 use App\Http\Controllers\RolePermissionController;
@@ -236,6 +237,17 @@ use Illuminate\Support\Facades\Route;
     Route::group(['prefix' => 'survey_form', 'as' => 'survey_form.'], function () {
         Route::get('/show', [SurveyFormController::class, 'show'])->name('show');     
       
+    });
+
+    //Question
+    Route::group(['prefix' => 'trainer', 'as' => 'trainer.'], function () {
+        Route::get('/show', [TrainerController::class, 'show'])->name('show')->middleware('check.permission');
+        Route::post('/list', [TrainerController::class, 'list'])->name('list');
+        Route::get('create', [TrainerController::class, 'create'])->name('create')->middleware('check.permission');
+        Route::post('store', [TrainerController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [TrainerController::class, 'edit'])->name('edit')->middleware('check.permission');
+        Route::post('update/{id}', [TrainerController::class, 'update'])->name('update');
+        Route::post('delete', [TrainerController::class, 'delete'])->name('delete')->middleware('check.permission');
     });
 
 });

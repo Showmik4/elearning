@@ -28,8 +28,66 @@
                     </li>
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav active"
                             href="{{ route('index') }}"><i data-feather="home"> </i><span>Dashboard</span></a>
-                    </li>             
+                    </li>               
                   
+                    @canany(['survey.show','survey.complete_survey'])
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="archive"></i><span>Survey</span></a>
+                        <ul class="sidebar-submenu">
+                            @can('survey.show')
+                            <li><a href="{{ route('survey.show') }}">Survey</a></li>
+                            @endcan
+                            @can('survey.complete_survey')
+                            <li><a href="{{ route('survey.complete_survey') }}">Complete Survey List</a></li>
+                            @endcan                          
+                        </ul>
+                    </li>
+                    @endcan
+
+                    @canany(['kpi_type.show','kpi_subtype.show','kpi.show','kpi.all_assigned_kpi'])
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="clipboard"></i><span>KPI</span></a>
+                        <ul class="sidebar-submenu">
+                            @can('kpi.show')
+                            <li><a href="{{ route('kpi.show') }}">KPI List</a></li>
+                            @endcan
+                            @can('kpi_subtype.show')
+                            <li><a href="{{ route('kpi_subtype.show') }}">KPI Subtype</a></li>
+                            @endcan
+                            @can('kpi_type.show')
+                            <li><a href="{{ route('kpi_type.show') }}">KPI Type</a></li>
+                            @endcan
+                            @can('kpi.all_assigned_kpi')
+                            <li><a href="{{ route('kpi.all_assigned_kpi') }}">Assigned KPI List</a></li>
+                            @endcan
+
+                        </ul>
+                    </li>
+                    @endcan
+
+
+
+                    @canany(['setting.show','user.view-employee','userType.show'])
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file-text"></i><span>Settings</span></a>
+                        <ul class="sidebar-submenu">
+                            @can('setting.show')
+                            <li><a href="{{ route('setting.show') }}">Setting</a></li>
+                            @endcan
+                            @can('team.show')
+                            <li><a href="{{ route('team.show') }}">Team</a></li>
+                            @endcan
+                            @can('user.view-employee')
+                            <li><a href="{{ route('user.view-employee') }}">Team Member</a></li>
+                            @endcan
+                            @can('userType.show')
+                            <li><a href="{{ route('userType.show') }}">Role & Permission</a></li>
+                            @endcan
+
+                            @can('trainer.show')
+                            <li><a href="{{ route('trainer.show') }}">Trainer</a></li>
+                            @endcan
+
+                        </ul>
+                    </li>
+                    @endcan
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

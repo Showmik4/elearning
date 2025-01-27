@@ -7,6 +7,7 @@ use App\Http\Controllers\CommitmentController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KpiAssignController;
@@ -39,9 +40,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::get('/', [FrontendController::class, 'homepage'])->name('homepage');
+    Route::get('/aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
+    Route::get('/course', [FrontendController::class, 'course'])->name('course');
+    Route::get('/course_details', [FrontendController::class, 'course_details'])->name('course_details');
+    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/registration_confimation', [HomeController::class, 'registration_confimation'])->name('registration_confimation');
     Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('index');
+    Route::get('/index', [HomeController::class, 'index'])->name('index');
     Route::get('/pie_chart', [HomeController::class, 'pie_chart'])->name('pie_chart');
     Route::post('ckeditor/upload', [HomeController::class, 'upload'])->name('ckeditor.upload');   
 

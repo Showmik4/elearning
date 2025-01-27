@@ -21,6 +21,7 @@ use DB;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
         $totalKpi=KPI::count();

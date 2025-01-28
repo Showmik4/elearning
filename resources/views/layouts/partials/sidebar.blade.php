@@ -89,6 +89,14 @@
                             <li><a href="{{ route('category.show') }}">Category</a></li>
                             @endcan
 
+                            @can('course.show')
+                            <li><a href="{{ route('course.show') }}">Course</a></li>
+                            @endcan
+
+                            @can('homepage_settings.show')
+                            <li><a href="{{ route('homepage_settings.show') }}">Homepage Settings</a></li>
+                            @endcan
+
                         </ul>
                     </li>
                     @endcan

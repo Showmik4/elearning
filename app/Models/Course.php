@@ -19,8 +19,20 @@ class Course extends Model
         'trainer_id', 
         'total_seat', 
         'available_seat', 
-        'schedule', 
+        'schedule',
+        'detail_page_image', 
         'details_page_banner_description',      
-
+        'image',
+        'detail_page_image',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function trainer()
+    {
+        return $this->belongsTo(Trainer::class, 'trainer_id', 'id');
+    }
 }

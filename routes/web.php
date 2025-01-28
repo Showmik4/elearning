@@ -5,9 +5,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CccMeetingAgendaController;
 use App\Http\Controllers\CommitmentController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\HomePageSettingsController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KpiAssignController;
@@ -259,6 +261,25 @@ use Illuminate\Support\Facades\Route;
         Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('edit')->middleware('check.permission');
         Route::post('update/{id}', [CategoryController::class, 'update'])->name('update');
         Route::post('delete', [CategoryController::class, 'delete'])->name('delete')->middleware('check.permission');
+    });
+
+    //Course
+    Route::group(['prefix' => 'course', 'as' => 'course.'], function () {
+        Route::get('/show', [CourseController::class, 'show'])->name('show')->middleware('check.permission');
+        Route::post('/list', [CourseController::class, 'list'])->name('list');
+        Route::get('create', [CourseController::class, 'create'])->name('create')->middleware('check.permission');
+        Route::post('store', [CourseController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [CourseController::class, 'edit'])->name('edit')->middleware('check.permission');
+        Route::post('update/{id}', [CourseController::class, 'update'])->name('update');
+        Route::post('delete', [CourseController::class, 'delete'])->name('delete')->middleware('check.permission');
+    });
+
+    //homepage settings
+    Route::group(['prefix' => 'homepage_settings', 'as' => 'homepage_settings.'], function () {
+        Route::get('/show', [HomePageSettingsController::class, 'show'])->name('show')->middleware('check.permission');
+        Route::post('/list', [HomePageSettingsController::class, 'list'])->name('list');     
+        Route::get('edit/{id}', [HomePageSettingsController::class, 'edit'])->name('edit')->middleware('check.permission');
+        Route::post('update/{id}', [HomePageSettingsController::class, 'update'])->name('update');       
     });
 
 });

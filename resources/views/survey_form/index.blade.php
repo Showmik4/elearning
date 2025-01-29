@@ -68,8 +68,8 @@
                     data: function (data) {
                         let buttons = '';                      
                         if (data.permissions.includes('survey.view_complete_survey_answer')) {
-                            buttons += '<a title="view answer" class="btn btn-warning btn-sm" data-panel-id="' + data.id + '" onclick="viewSurveyAnswer(this)"><i class="fa fa-eye"></i></a>';
-                        }                       
+                            buttons += '<a title="view answer" class="btn btn-warning btn-sm" data-panel-id="' + data.reference_no + '" onclick="viewSurveyAnswer(this)"><i class="fa fa-eye"></i></a>';
+                        }                      
                         return buttons || 'No Actions Available'; 
                     }, 
                     orderable: false, 

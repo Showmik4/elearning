@@ -7,10 +7,10 @@
             <span class="sitename">Mentor</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p>{{@$setting->address}}</p>
+            {{-- <p>New York, NY 535022</p> --}}
+            <p class="mt-3"><strong>Phone:</strong> <span>{{@$setting->phone}}</span></p>
+            <p><strong>Email:</strong> <span>{{@$setting->email}}</span></p>
           </div>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -44,7 +44,7 @@
 
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <p>{{@$setting->footer_text}}</p>
           <form action="forms/newsletter.php" method="post" class="php-email-form">
             <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
             <div class="loading">Loading</div>
@@ -63,7 +63,7 @@
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+        Developed By <a href="https://bootstrapmade.com/">{{@$setting->companyName}}</a>
       </div>
     </div>
 

@@ -116,6 +116,27 @@
     </div>
 @endsection
 @section('footer.js')
+<script>
+$(document).ready( function () {
+    CKEDITOR.replace( 'about_description');  
+    CKEDITOR.replace( 'why_chose_us_description');   
+    CKEDITOR.replace( 'feature_1'); 
+    CKEDITOR.replace( 'feature_2'); 
+    CKEDITOR.replace( 'feature_3'); 
+    // CKEDITOR.replace( 'footer_text');
+    // CKEDITOR.replace( 'aboutTitle');
+    // CKEDITOR.replace( 'aboutTop');
+    // CKEDITOR.replace( 'aboutLeftText');
+    // CKEDITOR.replace( 'aboutRightText');
+    // CKEDITOR.replace( 'homeCategoryText');
+    // CKEDITOR.replace( 'homeAboutUsText');
+    // CKEDITOR.replace( 'newProductText');
+    // CKEDITOR.replace( 'homeShowroomText');
+    // CKEDITOR.replace( 'nav_banner_text');   
+    // CKEDITOR.replace( 'about_page_md_message');
+    // CKEDITOR.replace( 'about_page_ceo_message');         
+});
+</script>
 
 
 @endsection

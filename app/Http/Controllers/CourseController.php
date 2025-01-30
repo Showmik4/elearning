@@ -76,7 +76,8 @@ class CourseController extends Controller
             'schedule'=>'required',
             'details_page_banner_description'=>'required',
             'image'=>'required',  
-            'detail_page_image'=>'required',    
+            'detail_page_image'=>'required',  
+            'price'=>'required',  
         ]);
 
         $course = Course::create([
@@ -87,6 +88,7 @@ class CourseController extends Controller
             'trainer_id'=>$validated['trainer_id'], 
             'total_seat'=>$validated['total_seat'], 
             'schedule'=>$validated['schedule'], 
+            'price'=>$validated['price'], 
             'details_page_banner_description'=>$validated['details_page_banner_description'], 
             'image' => $this->save_image('courseImage', $validated['image']),
             'detail_page_image' => $this->save_image('courseImage', $validated['detail_page_image']),
@@ -116,7 +118,8 @@ class CourseController extends Controller
             'schedule'=>'nullable',
             'details_page_banner_description'=>'nullable',
             'image'=>'nullable',  
-            'detail_page_image'=>'nullable',     
+            'detail_page_image'=>'nullable',   
+            'price'=>'nullable',    
         ]);
        
         $course = Course::findOrFail($id);       
@@ -135,6 +138,7 @@ class CourseController extends Controller
            
             $course->update([
                 'title' => $validated['title'], 
+                'price' => $validated['price'], 
                 'short_details'=>$validated['short_details'],     
                 'long_details'=>$validated['long_details'], 
                 'category_id'=>$validated['category_id'], 

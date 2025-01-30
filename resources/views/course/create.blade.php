@@ -43,6 +43,11 @@
                                             <span class="text-danger"><b>{{  $errors->first('title') }}</b></span>
                                         </div> 
                                         <div class="mb-3">
+                                            <label for="name">Price</label><span class="text-danger">*</span>
+                                            <input class="form-control" id="" name="price" type="text" placeholder="Enter Price">
+                                            <span class="text-danger"><b>{{  $errors->first('price') }}</b></span>
+                                        </div> 
+                                        <div class="mb-3">
                                             <label for="field">Short Details</label><span class="text-danger">*</span>
                                             <textarea class="form-control" id="" name="short_details" type="text" placeholder="Enter Short Details"  required></textarea>
                                             <span class="text-danger"><b>{{  $errors->first('short_details') }}</b></span>

@@ -19,6 +19,7 @@ class Course extends Model
         'trainer_id', 
         'total_seat', 
         'available_seat', 
+        'price',
         'schedule',
         'detail_page_image', 
         'details_page_banner_description',      

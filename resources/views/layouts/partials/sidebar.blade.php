@@ -97,6 +97,10 @@
                             <li><a href="{{ route('homepage_settings.show') }}">Homepage Settings</a></li>
                             @endcan
 
+                            @can('testimonial.show')
+                            <li><a href="{{ route('testimonial.show') }}">Testimonial</a></li>
+                            @endcan
+
                         </ul>
                     </li>
                     @endcan

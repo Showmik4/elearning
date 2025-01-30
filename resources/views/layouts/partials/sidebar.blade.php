@@ -100,7 +100,6 @@
                             @can('testimonial.show')
                             <li><a href="{{ route('testimonial.show') }}">Testimonial</a></li>
                             @endcan
-
                         </ul>
                     </li>
                     @endcan

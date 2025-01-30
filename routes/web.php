@@ -24,6 +24,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\SurveyFormController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\UserController;
@@ -272,6 +273,17 @@ use Illuminate\Support\Facades\Route;
         Route::get('edit/{id}', [CourseController::class, 'edit'])->name('edit')->middleware('check.permission');
         Route::post('update/{id}', [CourseController::class, 'update'])->name('update');
         Route::post('delete', [CourseController::class, 'delete'])->name('delete')->middleware('check.permission');
+    });
+
+    //Course
+    Route::group(['prefix' => 'testimonial', 'as' => 'testimonial.'], function () {
+        Route::get('/show', [TestimonialController::class, 'show'])->name('show')->middleware('check.permission');
+        Route::post('/list', [TestimonialController::class, 'list'])->name('list');
+        Route::get('create', [TestimonialController::class, 'create'])->name('create')->middleware('check.permission');
+        Route::post('store', [TestimonialController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [TestimonialController::class, 'edit'])->name('edit')->middleware('check.permission');
+        Route::post('update/{id}', [TestimonialController::class, 'update'])->name('update');
+        Route::post('delete', [TestimonialController::class, 'delete'])->name('delete')->middleware('check.permission');
     });
 
     //homepage settings

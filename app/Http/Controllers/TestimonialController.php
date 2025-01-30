@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimonial;
 use App\Traits\FileTrait;
 use App\Traits\ImageTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -71,46 +72,48 @@ class TestimonialController extends Controller
 
     public function edit($id)
     {      
-        $trainer = Trainer::findOrFail($id);  
+        $testimonial = Testimonial::findOrFail($id);  
         
-        return view('trainer.edit', compact('trainer'));
+        return view('testimonial.edit', compact('testimonial'));
     }
 
     public function update(Request $request, $id): RedirectResponse
     {       
         $validated = $request->validate([
-            'name' => 'required|string|max:255', 
-            'field'=>'required',  
-            'description'=>'required',
+            'name' => 'nullable|string|max:255', 
+            'job'=>'nullable', 
+            'review'=>'nullable', 
+            'description'=>'nullable',
             'image'=>'nullable',     
         ]);
        
-        $trainer = Trainer::findOrFail($id);       
-        if (!empty($trainer)) {
-            $image = $trainer->image;           
+        $testimonial = Testimonial::findOrFail($id);       
+        if (!empty($testimonial)) {
+            $image = $testimonial->image;           
             if ($request->hasFile('image')) {
-                $this->deleteImage($trainer->image); 
-                $image = $this->save_image('trainerImage', $request->file('image')); 
+                $this->deleteImage($testimonial->image); 
+                $image = $this->save_image('testimonialImage', $request->file('image')); 
             }
            
-            $trainer->update([
+            $testimonial->update([
                 'name' => $validated['name'], 
-                'field'=>$validated['field'],     
+                'job'=>$validated['job'],     
+                'review'=>$validated['review'],  
                 'description'=>$validated['description'], 
                 'image' => $image,               
             ]);
             
-            Session::flash('success', 'Trainer Updated Successfully!');
+            Session::flash('success', 'Testimonial Updated Successfully!');
         }
       
-        return redirect()->route('trainer.show');
+        return redirect()->route('testimonial.show');
     }
 
     public function delete(Request $request): JsonResponse
     {
-        $trainer = Trainer::where('id', $request->id)->first();
+        $testimonial = Testimonial::where('id', $request->id)->first();
         if (!empty($trainer)) {          
-            $trainer->delete();
+            $testimonial->delete();
         }
         return response()->json();
     }

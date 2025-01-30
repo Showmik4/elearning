@@ -60,8 +60,14 @@ class SettingController extends Controller
             'email' => 'required|email|max:50',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg',
             'logoDark' => 'nullable|image|mimes:jpeg,png,jpg',
-            'address' => 'required|string',
-            'phone' => 'required|string|max:30',          
+            'address' => 'nullable',
+            'phone' => 'nullable',  
+            'twitter_link' => 'nullable',
+            'facebook_link' => 'nullable',
+            'instagram_link' => 'nullable',
+            'linkedin_link' => 'nullable',
+            'footer_text' => 'nullable',
+            'google_map_link' => 'nullable',
         ]);
 
         $setting = Setting::query()->first();
@@ -88,6 +94,12 @@ class SettingController extends Controller
                 'logoDark' => $logoDark,
                 'address' => $validated['address'],
                 'phone' => $validated['phone'],
+                'twitter_link' => $validated['twitter_link'],
+                'facebook_link' => $validated['facebook_link'],
+                'instagram_link' => $validated['instagram_link'],
+                'linkedin_link' => $validated['linkedin_link'],
+                'footer_text' => $validated['footer_text'],
+                'google_map_link' => $validated['google_map_link'],
             ]);
         }
 

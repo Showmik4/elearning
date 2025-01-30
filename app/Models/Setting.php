@@ -17,6 +17,12 @@ class Setting extends Model
         'logo',
         'logoDark',
         'address',
-        'phone',      
+        'phone',
+        'twitter_link',
+        'facebook_link',
+        'instagram_link',
+        'linkedin_link',
+        'footer_text',
+        'google_map_link',     
     ];
 }

@@ -76,7 +76,43 @@
                                             <label for="phone">Company Phone</label>
                                             <input class="form-control" id="phone" name="phone" type="text" placeholder="Company Phone" value="{{ @$setting->phone }}" required>
                                             <span class="text-danger"><b>{{  $errors->first('phone') }}</b></span>
-                                        </div>                                                                        
+                                        </div>    
+                                        
+                                        <div class="mb-3">
+                                            <label for="phone">Twitter Link</label>
+                                            <input class="form-control" id="phone" name="twitter_link" type="text" placeholder="Twitter Link" value="{{ @$setting->twitter_link }}" required>
+                                            <span class="text-danger"><b>{{  $errors->first('twitter_link') }}</b></span>
+                                        </div>  
+
+                                        <div class="mb-3">
+                                            <label for="phone">Facebook Link</label>
+                                            <input class="form-control" id="phone" name="facebook_link" type="text" placeholder="Facebook Link" value="{{ @$setting->facebook_link }}" required>
+                                            <span class="text-danger"><b>{{  $errors->first('facebook_link') }}</b></span>
+                                        </div>  
+
+                                        <div class="mb-3">
+                                            <label for="phone">Instagram Link</label>
+                                            <input class="form-control" id="phone" name="instagram_link" type="text" placeholder="Instagram Link" value="{{ @$setting->instagram_link }}" required>
+                                            <span class="text-danger"><b>{{  $errors->first('instagram_link') }}</b></span>
+                                        </div>  
+
+                                        <div class="mb-3">
+                                            <label for="phone">Linkedin Link</label>
+                                            <input class="form-control" id="phone" name="linkedin_link" type="text" placeholder="Linkedin Link" value="{{ @$setting->linkedin_link }}" required>
+                                            <span class="text-danger"><b>{{  $errors->first('linkedin_link') }}</b></span>
+                                        </div>  
+
+                                        <div class="mb-3">
+                                            <label for="phone">Footer Text</label>
+                                            <input class="form-control" id="phone" name="footer_text" type="text" placeholder="Footer_text" value="{{ @$setting->footer_text }}" required>
+                                            <span class="text-danger"><b>{{  $errors->first('footer_text') }}</b></span>
+                                        </div> 
+                                        
+                                        <div class="mb-3">
+                                            <label for="google_map_link">Google Map Link</label>
+                                            <input class="form-control" id="google_map_link" name="google_map_link" type="text" placeholder="Google Map Link" value="{{ @$setting->google_map_link }}" required>
+                                            <span class="text-danger"><b>{{  $errors->first('google_map_link') }}</b></span>
+                                        </div> 
                                                                          
                                         <div class="text-end btn-mb">
                                             <button class="btn btn-secondary" type="button"><a class="text-white" href="{{ route('setting.show') }}">Cancel</a></button>
@@ -95,19 +131,19 @@
 @section('footer.js')
     <script>
         $(document).ready( function () {
-            CKEDITOR.replace( 'contactText1');            
-            CKEDITOR.replace( 'footer_text');
-            CKEDITOR.replace( 'aboutTitle');
-            CKEDITOR.replace( 'aboutTop');
-            CKEDITOR.replace( 'aboutLeftText');
-            CKEDITOR.replace( 'aboutRightText');
-            CKEDITOR.replace( 'homeCategoryText');
-            CKEDITOR.replace( 'homeAboutUsText');
-            CKEDITOR.replace( 'newProductText');
-            CKEDITOR.replace( 'homeShowroomText');
-            CKEDITOR.replace( 'nav_banner_text');   
-            CKEDITOR.replace( 'about_page_md_message');
-            CKEDITOR.replace( 'about_page_ceo_message');         
+            // CKEDITOR.replace( 'contactText1');            
+            // CKEDITOR.replace( 'footer_text');
+            // CKEDITOR.replace( 'aboutTitle');
+            // CKEDITOR.replace( 'aboutTop');
+            // CKEDITOR.replace( 'aboutLeftText');
+            // CKEDITOR.replace( 'aboutRightText');
+            // CKEDITOR.replace( 'homeCategoryText');
+            // CKEDITOR.replace( 'homeAboutUsText');
+            // CKEDITOR.replace( 'newProductText');
+            // CKEDITOR.replace( 'homeShowroomText');
+            // CKEDITOR.replace( 'nav_banner_text');   
+            // CKEDITOR.replace( 'about_page_md_message');
+            // CKEDITOR.replace( 'about_page_ceo_message');         
         });
     </script>
 @endsection

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title'){{ 'Trainer Edit' }}@endsection
+@section('title'){{ 'Testimonial Edit' }}@endsection
 @section('header.css')
     <style>
 
@@ -21,7 +21,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">Settings</li>
-                            <li class="breadcrumb-item active">Trainer</li>
+                            <li class="breadcrumb-item active">Testimonial</li>
                         </ol>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-wizard" action="{{ route('trainer.update', $testimonial->id) }}" method="POST" enctype="multipart/form-data">
+                            <form class="form-wizard" action="{{ route('testimonial.update', $testimonial->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row ">
                                     <div class="col-md-8">
@@ -46,6 +46,11 @@
                                             <label for="field">Field</label><span class="text-danger">*</span>
                                             <input class="form-control" id="" name="job" type="text" placeholder="Enter Job Field" value="{{$testimonial->job}}" required>
                                             <span class="text-danger"><b>{{  $errors->first('job') }}</b></span>
+                                        </div> 
+                                        <div class="mb-3">
+                                            <label for="field">Review</label><span class="text-danger">*</span>
+                                            <input class="form-control" id="" name="review" type="text" placeholder="Enter Review" value="{{$testimonial->review}}" required>
+                                            <span class="text-danger"><b>{{  $errors->first('review') }}</b></span>
                                         </div> 
                                         <div class="mb-3">
                                             <label for="field">Description</label><span class="text-danger">*</span>
@@ -64,7 +69,7 @@
                                         </div>
                                         @endif
                                         <div class="text-end btn-mb">
-                                            <button class="btn btn-secondary" type="button"><a class="text-white" href="{{ route('trainer.show') }}">Cancel</a></button>
+                                            <button class="btn btn-secondary" type="button"><a class="text-white" href="{{ route('testimonial.show') }}">Cancel</a></button>
                                             <button class="btn btn-primary" type="submit">Create</button>
                                         </div>
                                     </div>

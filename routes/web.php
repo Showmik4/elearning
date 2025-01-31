@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
@@ -49,6 +50,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/course', [FrontendController::class, 'course'])->name('course');
     Route::get('/course_details', [FrontendController::class, 'course_details'])->name('course_details');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::get('/trainer', [FrontendController::class, 'trainer'])->name('trainer');
     Route::get('/registration_confimation', [HomeController::class, 'registration_confimation'])->name('registration_confimation');
     Route::group(['middleware' => 'auth'], function () {
     Route::get('/index', [HomeController::class, 'index'])->name('index');
@@ -292,6 +294,15 @@ use Illuminate\Support\Facades\Route;
         Route::post('/list', [HomePageSettingsController::class, 'list'])->name('list');     
         Route::get('edit/{id}', [HomePageSettingsController::class, 'edit'])->name('edit')->middleware('check.permission');
         Route::post('update/{id}', [HomePageSettingsController::class, 'update'])->name('update');       
+    });
+
+    //About
+    Route::group(['prefix' => 'about', 'as' => 'about.'], function () {
+        Route::get('/show', [AboutController::class, 'show'])->name('show')->middleware('check.permission');
+        Route::post('/list', [AboutController::class, 'list'])->name('list');      
+        Route::get('edit/{id}', [AboutController::class, 'edit'])->name('edit')->middleware('check.permission');
+        Route::post('update/{id}', [AboutController::class, 'update'])->name('update');
+        Route::post('delete', [AboutController::class, 'delete'])->name('delete')->middleware('check.permission');
     });
 
 });

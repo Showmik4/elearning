@@ -40,4 +40,10 @@ class FrontendController extends Controller
     {
         return view('frontend.contact');
     }
+
+    public function trainer()
+    {
+        $trainer=Trainer::query()->get();
+        return view('frontend.trainer',compact('trainer'));
+    }
 }

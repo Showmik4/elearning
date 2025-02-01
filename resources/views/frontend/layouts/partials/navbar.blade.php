@@ -13,9 +13,9 @@
           <li><a href="{{route('aboutus')}}">About</a></li>
           <li><a href="{{route('course')}}">Courses</a></li>
           <li><a href="{{route('trainer')}}">Trainers</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          {{-- <li><a href="events.html">Events</a></li>
+          <li><a href="pricing.html">Pricing</a></li> --}}
+          {{-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -31,13 +31,13 @@
               <li><a href="#">Dropdown 3</a></li>
               <li><a href="#">Dropdown 4</a></li>
             </ul>
-          </li>
+          </li> --}}
           <li><a href="{{route('contact')}}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="courses.html">Get Started</a>
+      {{-- <a class="btn-getstarted" href="courses.html">Get Started</a> --}}
 
     </div>
   </header>

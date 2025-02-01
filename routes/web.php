@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [FrontendController::class, 'homepage'])->name('homepage');
     Route::get('/aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
     Route::get('/course', [FrontendController::class, 'course'])->name('course');
-    Route::get('/course_details', [FrontendController::class, 'course_details'])->name('course_details');
+    Route::get('/course_details/{id}', [FrontendController::class, 'course_details'])->name('course_details');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/trainer', [FrontendController::class, 'trainer'])->name('trainer');
     Route::get('/registration_confimation', [HomeController::class, 'registration_confimation'])->name('registration_confimation');

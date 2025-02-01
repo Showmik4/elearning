@@ -11,7 +11,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>Trainer</h3>
+                        <h3>About</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -63,7 +63,7 @@
                 },
                 columns: [
                     {title: 'ID', data: 'id', name: 'id', className: "text-center", orderable: true, searchable: true},  
-                    {title: 'Banner', data: 'banner_description', name: 'banner_description', className: "text-center", orderable: true, searchable: true},                 
+                    // {title: 'Banner', data: 'banner_description', name: 'banner_description', className: "text-center", orderable: true, searchable: true},                 
                     {title: 'Image', data: 'image', name: 'image', className: "text-center", orderable: true, searchable: true},            
                     { 
                     title: 'Action', 
@@ -90,7 +90,6 @@
             let url = '{{route("about.edit", ":id") }}';
             window.location.href = url.replace(':id', btn);
         }
-
       
     </script>
 @endsection

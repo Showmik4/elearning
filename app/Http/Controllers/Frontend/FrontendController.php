@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Course;
 use App\Models\HomePageSettings;
 use App\Models\Testimonial;
@@ -22,8 +23,9 @@ class FrontendController extends Controller
 
     public function aboutus()
     {
+        $about=About::query()->first();
         $testimonial=Testimonial::query()->get();
-        return view('frontend.about_us',compact('testimonial'));
+        return view('frontend.about_us',compact('testimonial','about'));
     }
 
     public function course()

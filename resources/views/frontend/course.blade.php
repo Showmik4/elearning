@@ -8,7 +8,7 @@
 
 <main class="main">
 
-    <!-- Page Title -->
+    <!-- Page Tie -->
     <div class="page-title" data-aos="fade">
       <div class="heading">
         <div class="container">

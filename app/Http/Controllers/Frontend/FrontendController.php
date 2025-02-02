@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Contact;
 use App\Models\Course;
 use App\Models\HomePageSettings;
 use App\Models\Order;
 use App\Models\Testimonial;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
 {
@@ -42,6 +44,7 @@ class FrontendController extends Controller
 
     public function contact()
     {
+
         return view('frontend.contact');
     }
 
@@ -74,7 +77,31 @@ class FrontendController extends Controller
             'payment_method' => $validated['payment_method'],  
             'total_price' => $validated['total_price'],     
         ]);   
-          
+        Session::flash('success', 'Order Placed Successful!');
         return redirect()->route('homepage');
+    }
+
+    public function submit_contact(Request $request)
+    {
+        // dd($request->all());
+        $validated = $request->validate([
+            'name' => 'nullable', 
+            'email'=>'required', 
+            'subject'=>'nullable',   
+            'message'=>'required', 
+           
+        ]);
+       
+        $contact = Contact::create([
+            'name' => $validated['name'], 
+            'email' => $validated['email'],  
+            'subject' => $validated['subject'],    
+            'message' => $validated['message'], 
+              
+        ]);   
+
+        Session::flash('success', 'Message Sending Successful!');
+          
+        return redirect()->back();
     }
 }

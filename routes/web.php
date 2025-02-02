@@ -54,6 +54,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/checkout/{id}', [FrontendController::class, 'checkout'])->name('checkout');
     Route::post('/submit_order', [FrontendController::class, 'submit_order'])->name('submit_order');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::post('/submit_contact', [FrontendController::class, 'submit_contact'])->name('submit_contact');
     Route::get('/trainer', [FrontendController::class, 'trainer'])->name('trainer');
     Route::get('/registration_confimation', [HomeController::class, 'registration_confimation'])->name('registration_confimation');
     Route::group(['middleware' => 'auth'], function () {

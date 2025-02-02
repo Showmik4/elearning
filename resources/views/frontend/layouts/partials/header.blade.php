@@ -23,6 +23,7 @@
   
     <!-- Main CSS File -->
     <link href="{{ url('public/frontend/assets/css/main.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   
     @yield('frontend_header.css')
   </head>

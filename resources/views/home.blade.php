@@ -73,21 +73,9 @@
         <!-- Container-fluid starts-->
         <div class="container-fluid">
             <div class="row second-chart-list third-news-update">
-                {{-- <div class="col-lg-6 col-md-12 col-sm-12 chart_data_left"> --}}
-                    <div class="col-lg-6 col-md-12 col-sm-12 mb-4" id="barchart_material"></div>
-                {{-- </div> --}}
-                {{-- <div class="col-lg-6 col-md-12 col-sm-12 chart_data_left"> --}}
-                    <div class="col-lg-6 col-md-12 col-sm-12 mb-4" id="barchart_material1"></div>
-                {{-- </div> --}}
-                {{-- <div class="col-lg-6 col-md-12 col-sm-12 chart_data_left"> --}}
-                    <div class="col-lg-6 col-md-12 col-sm-12 mb-4" id="barchart_material2"></div>
-                {{-- </div> --}}
-                {{-- <div class="col-lg-6 col-md-12 col-sm-12 chart_data_left"> --}}
-                    <div class="col-lg-6 col-md-12 col-sm-12 mb-4" id="barchart_material3"></div>
-                {{-- </div> --}}
+               
             </div>
-        </div>
-        
+        </div>       
         
     </div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

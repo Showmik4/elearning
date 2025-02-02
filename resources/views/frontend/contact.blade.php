@@ -46,7 +46,7 @@
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>{{@$setting->address}}</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -54,7 +54,7 @@
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <p>{{@$setting->phone}}</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -62,14 +62,15 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>info@example.com</p>
+                <p>{{@$setting->email}}</p>
               </div>
             </div><!-- End Info Item -->
 
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="{{route('submit_contact')}}" method="post" class=""  enctype="multipart/form-data">
+              @csrf
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -89,11 +90,11 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
+                  {{-- <div class="loading">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div> --}}
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="btn btn-primary w-100">Send Message</button>
                 </div>
 
               </div>

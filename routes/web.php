@@ -7,6 +7,7 @@ use App\Http\Controllers\CccMeetingAgendaController;
 use App\Http\Controllers\CommitmentController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CourseMaterialController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\KpiFeedbackController;
 use App\Http\Controllers\KpiSubTypeController;
 use App\Http\Controllers\KpiTypeController;
 use App\Http\Controllers\MetaController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
@@ -118,103 +120,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('edit/{id}', [TeamController::class, 'edit'])->name('edit')->middleware('check.permission');
         Route::post('update/{id}', [TeamController::class, 'update'])->name('update');
         Route::post('delete', [TeamController::class, 'delete'])->name('delete')->middleware('check.permission');
-    });
-
-    //Survey
-      Route::group(['prefix' => 'survey', 'as' => 'survey.'], function () {
-        Route::get('/show', [SurveyController::class, 'show'])->name('show')->middleware('check.permission');
-        Route::post('/list', [SurveyController::class, 'list'])->name('list');
-        Route::get('create', [SurveyController::class, 'create'])->name('create')->middleware('check.permission');
-        Route::post('store', [SurveyController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [SurveyController::class, 'edit'])->name('edit')->middleware('check.permission');
-        Route::post('update/{id}', [SurveyController::class, 'update'])->name('update');
-        Route::post('delete', [SurveyController::class, 'delete'])->name('delete')->middleware('check.permission');
-        Route::get('details/{id}', [SurveyFormController::class, 'survey_form'])->name('details')->middleware('check.permission');
-        Route::post('submit_survey', [SurveyFormController::class, 'submit_survey_form'])->name('submit_survey');
-        Route::get('complete_survey', [SurveyFormController::class, 'complete_survey'])->name('complete_survey')->middleware('check.permission');
-        Route::post('complete_survey_list', [SurveyFormController::class, 'complete_survey_list'])->name('complete_survey_list');
-        Route::get('view_complete_survey_answer/{reference_no}', [SurveyFormController::class, 'view_complete_survey_answer'])->name('view_complete_survey_answer')->middleware('check.permission');
-    });
-
-    //Question
-    Route::group(['prefix' => 'question', 'as' => 'question.'], function () {
-        Route::get('/show', [QuestionController::class, 'show'])->name('show')->middleware('check.permission');
-        Route::post('/list', [QuestionController::class, 'list'])->name('list');
-        Route::get('create', [QuestionController::class, 'create'])->name('create')->middleware('check.permission');
-        Route::post('store', [QuestionController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [QuestionController::class, 'edit'])->name('edit')->middleware('check.permission');
-        Route::post('update/{id}', [QuestionController::class, 'update'])->name('update');
-        Route::post('delete', [QuestionController::class, 'delete'])->name('delete');
-    });
-
-    //Question
-    Route::group(['prefix' => 'answer', 'as' => 'answer.'], function () {
-        Route::get('/show', [AnswerController::class, 'show'])->name('show')->middleware('check.permission');
-        Route::post('/list', [AnswerController::class, 'list'])->name('list');
-        Route::get('create/{id}', [AnswerController::class, 'create'])->name('create');
-        Route::get('add', [AnswerController::class, 'add'])->name('add');
-        Route::post('store', [AnswerController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [AnswerController::class, 'edit'])->name('edit');
-        Route::post('update/{id}', [QuestionController::class, 'update'])->name('update');
-        Route::post('delete', [AnswerController::class, 'delete'])->name('delete');
-    });
-  
-    //Kpi Type
-    Route::group(['prefix' => 'kpi_type', 'as' => 'kpi_type.'], function () {
-        Route::get('/show', [KpiTypeController::class, 'show'])->name('show')->middleware('check.permission');
-        Route::post('/list', [KpiTypeController::class, 'list'])->name('list');
-        Route::get('create', [KpiTypeController::class, 'create'])->name('create')->middleware('check.permission');
-        Route::post('store', [KpiTypeController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [KpiTypeController::class, 'edit'])->name('edit')->middleware('check.permission');
-        Route::post('update/{id}', [KpiTypeController::class, 'update'])->name('update');
-        Route::post('delete', [KpiTypeController::class, 'delete'])->name('delete')->middleware('check.permission');
-    });
-
-    //Kpi SubType
-    Route::group(['prefix' => 'kpi_subtype', 'as' => 'kpi_subtype.'], function () {
-        Route::get('/show', [KpiSubTypeController::class, 'show'])->name('show')->middleware('check.permission');
-        Route::post('/list', [KpiSubTypeController::class, 'list'])->name('list');
-        Route::get('create', [KpiSubTypeController::class, 'create'])->name('create')->middleware('check.permission');
-        Route::post('store', [KpiSubTypeController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [KpiSubTypeController::class, 'edit'])->name('edit')->middleware('check.permission');
-        Route::post('update/{id}', [KpiSubTypeController::class, 'update'])->name('update');
-        Route::post('delete', [KpiSubTypeController::class, 'delete'])->name('delete');
-        Route::post('/subtype_topic_list', [KpiSubTypeController::class, 'subtype_topic_list'])->name('subtype_topic_list');
-    });
-
-    //Kpi SubType Topic
-    Route::group(['prefix' => 'topic', 'as' => 'topic.'], function () {
-        Route::get('/show', [TopicController::class, 'show'])->name('show');
-        Route::post('/list', [TopicController::class, 'list'])->name('list');
-        Route::get('create', [TopicController::class, 'create'])->name('create');
-        Route::post('store', [TopicController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [TopicController::class, 'edit'])->name('edit');
-        Route::post('delete', [TopicController::class, 'delete'])->name('delete');
-        Route::post('update/{id}', [KpiSubTypeController::class, 'update'])->name('update');        
-        Route::post('/subtype_topic_list', [KpiSubTypeController::class, 'subtype_topic_list'])->name('subtype_topic_list');
-    });
-
-    //Kpi
-    Route::group(['prefix' => 'kpi', 'as' => 'kpi.'], function () {
-        Route::get('/show', [KpiController::class, 'show'])->name('show')->middleware('check.permission');
-        Route::post('/list', [KpiController::class, 'list'])->name('list');
-        Route::get('create', [KpiController::class, 'create'])->name('create')->middleware('check.permission');
-        Route::post('store', [KpiController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [KpiController::class, 'edit'])->name('edit')->middleware('check.permission');
-        Route::post('update/{id}', [KpiController::class, 'update'])->name('update');
-        Route::post('delete', [KpiController::class, 'delete'])->name('delete');
-        Route::post('findSubType', [KpiController::class, 'findSubType'])->name('findSubType');
-        Route::post('findSubTypeTopic', [KpiController::class, 'findSubTypeTopic'])->name('findSubTypeTopic');
-        Route::get('assign/{id}', [KpiAssignController::class, 'assign'])->name('assign')->middleware('check.permission');
-        Route::post('assign_submit', [KpiAssignController::class, 'assign_submit'])->name('assign_submit');
-        Route::post('assignList', [KpiAssignController::class, 'assignList'])->name('assignList');
-        Route::get('all_assigned_kpi', [KpiAssignController::class, 'all_kpi'])->name('all_assigned_kpi')->middleware('check.permission');
-        Route::post('all_assigned_kpi_list', [KpiAssignController::class, 'all_assigned_kpi_list'])->name('all_assigned_kpi_list');
-        Route::get('kpi_feedback/{id}', [KpiFeedbackController::class, 'kpi_feedback'])->name('kpi_feedback')->middleware('check.permission');
-        Route::post('kpi_feedback_submit/{id}', [KpiFeedbackController::class, 'kpi_feedback_submit'])->name('kpi_feedback_submit');
-        Route::get('complete_kpi/{id}', [KpiFeedbackController::class, 'complete_kpi'])->name('complete_kpi')->middleware('check.permission');
-        Route::post('complete_kpi_submit/{id}', [KpiFeedbackController::class, 'complete_kpi_submit'])->name('complete_kpi_submit');
-    });
+    });   
       
     //Meta
     Route::group(['prefix' => 'meta', 'as' => 'meta.'], function () {
@@ -238,13 +144,7 @@ use Illuminate\Support\Facades\Route;
         Route::post('delete', [CustomerController::class, 'delete'])->name('delete');
         Route::post('findlocation', [CustomerController::class, 'findLocation'])->name('findlocation');
         Route::post('statusUpdate', [CustomerController::class, 'statusUpdate'])->name('statusUpdate');
-    });
-
-    //Customer
-    Route::group(['prefix' => 'survey_form', 'as' => 'survey_form.'], function () {
-        Route::get('/show', [SurveyFormController::class, 'show'])->name('show');     
-      
-    });
+    }); 
 
     //Question
     Route::group(['prefix' => 'trainer', 'as' => 'trainer.'], function () {
@@ -280,6 +180,17 @@ use Illuminate\Support\Facades\Route;
     });
 
     //Course
+    Route::group(['prefix' => 'course_material', 'as' => 'course_material.'], function () {
+        Route::get('/show', [CourseMaterialController::class, 'show'])->name('show')->middleware('check.permission');
+        Route::post('/list', [CourseMaterialController::class, 'list'])->name('list');
+        Route::get('create/{id}', [CourseMaterialController::class, 'create'])->name('create')->middleware('check.permission');
+        Route::post('store', [CourseMaterialController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [CourseMaterialController::class, 'edit'])->name('edit')->middleware('check.permission');
+        Route::post('update/{id}', [CourseMaterialController::class, 'update'])->name('update');
+        Route::post('delete', [CourseMaterialController::class, 'delete'])->name('delete')->middleware('check.permission');
+    });
+
+    //Course
     Route::group(['prefix' => 'testimonial', 'as' => 'testimonial.'], function () {
         Route::get('/show', [TestimonialController::class, 'show'])->name('show')->middleware('check.permission');
         Route::post('/list', [TestimonialController::class, 'list'])->name('list');
@@ -305,6 +216,15 @@ use Illuminate\Support\Facades\Route;
         Route::get('edit/{id}', [AboutController::class, 'edit'])->name('edit')->middleware('check.permission');
         Route::post('update/{id}', [AboutController::class, 'update'])->name('update');
         Route::post('delete', [AboutController::class, 'delete'])->name('delete')->middleware('check.permission');
+    });
+
+    //Order
+    Route::group(['prefix' => 'order', 'as' => 'order.'], function () {
+    Route::get('/show', [OrderController::class, 'show'])->name('show')->middleware('check.permission');
+    Route::post('/list', [OrderController::class, 'list'])->name('list'); 
+    // Route::get('edit/{id}', [TeamController::class, 'edit'])->name('edit')->middleware('check.permission');
+    // Route::post('update/{id}', [TeamController::class, 'update'])->name('update');
+    Route::post('delete', [TeamController::class, 'delete'])->name('delete')->middleware('check.permission');
     });
 
 });

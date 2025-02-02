@@ -17,8 +17,7 @@ class FrontendController extends Controller
     {
         $home=HomePageSettings::first();
         $course=Course::with('trainer','category')->get();
-        $trainer=Trainer::query()->get();
-        // dd($home);
+        $trainer=Trainer::query()->get();       
         return view('frontend.home',compact('home','course','trainer'));
     }
 

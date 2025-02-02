@@ -78,6 +78,10 @@
                         if (data.permissions.includes('course.delete')) {
                             buttons += ' <a title="delete" class="btn btn-danger btn-sm" data-panel-id="' + data.id + '" onclick="deleteCourse(this)"><i class="fa fa-trash"></i></a>';
                         }
+
+                        if (data.permissions.includes('course_material.create')) {
+                            buttons += ' <a title="course material" class="btn btn-danger btn-sm" data-panel-id="' + data.id + '" onclick="uploadFile(this)"><i class="fa fa-trash"></i></a>';
+                        }
                         return buttons || 'No Actions Available'; 
                     }, 
                     orderable: false, 
@@ -112,6 +116,12 @@
                     $('#courseTable').DataTable().clear().draw();
                 },
             });
+        }
+
+        function uploadFile(x) {
+            let btn = $(x).data('panel-id');
+            let url = '{{route("course_material.create", ":id") }}';
+            window.location.href = url.replace(':id', btn);
         }
     </script>
 @endsection

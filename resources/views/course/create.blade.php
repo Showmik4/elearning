@@ -89,7 +89,7 @@
                                         </div> 
                                         <div class="mb-3">
                                             <label for="field">Detail Page Banner Description</label><span class="text-danger">*</span>
-                                            <textarea class="form-control" id="details_page_banner_description" name="details_page_banner_description" type="text" placeholder="Enter Detail Page Banner Description"  required></textarea>
+                                            <textarea class="form-control" id="" name="details_page_banner_description" type="text" placeholder="Enter Detail Page Banner Description"  required></textarea>
                                             <span class="text-danger"><b>{{  $errors->first('details_page_banner_description') }}</b></span>
                                         </div> 
                                         <div class="mb-3">
@@ -117,10 +117,6 @@
     </div>
 @endsection
 @section('footer.js')
-<script>
-    $(document).ready( function () {
-        CKEDITOR.replace( 'details_page_banner_description');  
-        CKEDITOR.replace( 'long_details');                
-    });
-</script>
+
+
 @endsection

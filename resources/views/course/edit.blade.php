@@ -128,10 +128,6 @@
     </div>
 @endsection
 @section('footer.js')
-<script>
-    $(document).ready( function () {
-        CKEDITOR.replace( 'details_page_banner_description');  
-        CKEDITOR.replace( 'long_details');                
-    });
-</script>
+
+
 @endsection

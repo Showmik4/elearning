@@ -15,9 +15,9 @@ class CourseMaterialController extends Controller
     use ImageTrait;
     use FileTrait; 
 
-    public function list()
+    public function list(Request $request)
     {
-        $course_material = CourseMaterial::with('course')->get();      
+        $course_material = CourseMaterial::with('course')->where('course_id',$request->course_id)->get();      
         $userPermissions = auth()->user()->userType->permissions->pluck('name')->toArray();
         return datatables()->of($course_material)
             ->addColumn('permissions', function () use ($userPermissions) {
@@ -69,6 +69,39 @@ class CourseMaterialController extends Controller
            
         Session::flash('success', 'Course Material Created Successfully!');
         return redirect()->back();
+    }
+
+    public function edit($id)
+    {      
+        $course_material = CourseMaterial::with('course')->findOrFail($id);  
+      
+        return view('course_material.edit', compact('course_material'));
+    }
+
+    public function update(Request $request, $id): RedirectResponse
+    {       
+        $validated = $request->validate([          
+            'file'=>'nullable',  
+            'status'=>'nullable', 
+        ]);
+       
+        $course_material = CourseMaterial::findOrFail($id);       
+        if (!empty($course_material)) { 
+            $image = $course_material->file;           
+            if ($request->hasFile('file')) {
+                $this->deleteImage($course_material->image); 
+                $image = $this->save_image('courseMaterialImage', $request->file('file')); 
+            }
+           
+            $course_material->update([               
+                'status'=>$validated['status'],    
+                'file' => $image,               
+            ]);
+            
+            Session::flash('success', 'Course Material Updated Successfully!');
+        }
+      
+        return redirect()->route('course.show');
     }
 
 }

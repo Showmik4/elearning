@@ -97,6 +97,7 @@
                 "type": "POST",
                 data: function (d) {
                     d._token = "{{ csrf_token() }}";
+                    d.course_id = {{ @$course->id }}
                 },
             },
             columns: [
@@ -104,35 +105,29 @@
                 {title: 'Course', data: 'course', name: 'course', className: "text-center", orderable: true, searchable: true},   
                 {title: 'File', data: 'Downloads', name: 'Downloads', className: "text-center", orderable: true, searchable: true},  
                 {title: 'Status', data: 'status', name: 'status', className: "text-center", orderable: true, searchable: true},            
-                // { 
-                // title: 'Action', 
-                // className: "text-center", 
-                // data: function (data) {
-                //     let buttons = '';                       
+                { 
+                title: 'Action', 
+                className: "text-center", 
+                data: function (data) {
+                    let buttons = '';                      
                 
-                //     if (data.permissions.includes('course.edit')) {
-                //         buttons += '<a title="edit" class="btn btn-warning btn-sm" data-panel-id="' + data.id + '" onclick="editCourse(this)"><i class="fa fa-edit"></i></a>';
-                //     }
-                //     if (data.permissions.includes('course.delete')) {
-                //         buttons += ' <a title="delete" class="btn btn-danger btn-sm" data-panel-id="' + data.id + '" onclick="deleteCourse(this)"><i class="fa fa-trash"></i></a>';
-                //     }
-
-                //     if (data.permissions.includes('course_material.create')) {
-                //         buttons += ' <a title="course material" class="btn btn-danger btn-sm" data-panel-id="' + data.id + '" onclick="uploadFile(this)"><i class="fa fa-trash"></i></a>';
-                //     }
-                //     return buttons || 'No Actions Available'; 
-                // }, 
-                // orderable: false, 
-                // searchable: false
-                // }
+                    if (data.permissions.includes('course_material.edit')) {
+                        buttons += '<a title="edit" class="btn btn-warning btn-sm" data-panel-id="' + data.id + '" onclick="editCourseMaterial(this)"><i class="fa fa-edit"></i></a>';
+                    }
+                   
+                    return buttons || 'No Actions Available'; 
+                }, 
+                orderable: false, 
+                searchable: false
+                }
             ],              
             
         });
     });
 
-    function editCourse(x) {
+    function editCourseMaterial(x) {
         let btn = $(x).data('panel-id');
-        let url = '{{route("course.edit", ":id") }}';
+        let url = '{{route("course_material.edit", ":id") }}';
         window.location.href = url.replace(':id', btn);
     }
 

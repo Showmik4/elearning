@@ -28,7 +28,7 @@
           </ol>
         </div>
       </nav>
-    </div><!-- End Page Title -->
+    </div><!-- End  Title -->
     <!-- Courses Section -->
     <section id="courses" class="courses section">
       <div class="container">

@@ -1,14 +1,21 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Mentor Bootstrap Template</title>
+    @if(\Request::route()->getName() === 'homepage')
+    <title>Homepage | Mentor</title>
+    @elseif(\Request::route()->getName() === 'login')
+    <title>Login | Mentor</title>
+    @else
+    <title>@yield('title') | Mentor</title>
+    @endif
     <meta name="description" content="">
     <meta name="keywords" content="">
   
     <!-- Favicons -->
-    <link href="{{ url('public/frontend/assets/img/favicon.png')}}" rel="icon">
-    <link href="{{ url('public/frontend/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
-  
+    @if(isset($setting->logoDark))
+    <link href="{{ $setting->logo}}" rel="icon">
+    <link href="{{ $setting->logo}}" rel="apple-touch-icon">
+    @endif
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>

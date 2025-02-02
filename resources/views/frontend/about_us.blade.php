@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-{{ 'Home Page' }}
+{{ 'About' }}
 @endsection
 
 @section('frontend_main.content')

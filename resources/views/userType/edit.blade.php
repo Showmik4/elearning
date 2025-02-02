@@ -61,7 +61,7 @@
         </div>
         {{-- <div class="container-fluid">  --}}     
         @php
-        $prefixes = ['user','setting','userType','team','survey','kpi_type','kpi_subtype','kpi','trainer','category','course','homepage_settings','testimonial','about','order','course_material'
+        $prefixes = ['user','setting','userType','trainer','category','course','homepage_settings','testimonial','about','order','course_material'
         ];
         @endphp
         <div class="col-12 mx-auto">

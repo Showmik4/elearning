@@ -25,8 +25,7 @@
     @endif
 
     @if(session('warning'))
-    toastr.warning('{{ session('warning') }}')
-    
+    toastr.warning('{{ session('warning') }}')    
     @endif
 
     @if(session('success'))

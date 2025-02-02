@@ -113,6 +113,24 @@
                                             <input class="form-control" id="google_map_link" name="google_map_link" type="text" placeholder="Google Map Link" value="{{ @$setting->google_map_link }}" required>
                                             <span class="text-danger"><b>{{  $errors->first('google_map_link') }}</b></span>
                                         </div> 
+
+                                        <div class="mb-3">
+                                            <label for="contact_page_banner_text">Contact Page Banner Text</label>
+                                            <textarea class="form-control" id="contact_page_banner_text" name="contact_page_banner_text" type="text" placeholder="Contact Page Banner Text" value="" required>{{@$setting->contact_page_banner_text}}</textarea>
+                                            <span class="text-danger"><b>{{  $errors->first('contact_page_banner_text') }}</b></span>
+                                        </div> 
+
+                                        <div class="mb-3">
+                                            <label for="address">Trainer Page Banner Text</label>
+                                            <textarea class="form-control" id="trainer_page_banner_text" name="trainer_page_banner_text" type="text" placeholder="Trainer Page Banner Text" value="" required>{{@$setting->trainer_page_banner_text}}</textarea>
+                                            <span class="text-danger"><b>{{  $errors->first('trainer_page_banner_text') }}</b></span>
+                                        </div> 
+
+                                        <div class="mb-3">
+                                            <label for="address">Course Page Banner Text</label>
+                                            <textarea class="form-control" id="course_page_banner_text" name="course_page_banner_text" type="text" placeholder="Course Page Banner Text" value="" required>{{@$setting->course_page_banner_text}}</textarea>
+                                            <span class="text-danger"><b>{{  $errors->first('course_page_banner_text') }}</b></span>
+                                        </div> 
                                                                          
                                         <div class="text-end btn-mb">
                                             <button class="btn btn-secondary" type="button"><a class="text-white" href="{{ route('setting.show') }}">Cancel</a></button>
@@ -143,7 +161,9 @@
             // CKEDITOR.replace( 'homeShowroomText');
             // CKEDITOR.replace( 'nav_banner_text');   
             // CKEDITOR.replace( 'about_page_md_message');
-            // CKEDITOR.replace( 'about_page_ceo_message');         
+            CKEDITOR.replace( 'contact_page_banner_text');  
+            CKEDITOR.replace( 'trainer_page_banner_text');  
+            CKEDITOR.replace( 'course_page_banner_text');         
         });
     </script>
 @endsection

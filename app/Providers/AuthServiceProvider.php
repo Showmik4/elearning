@@ -28,7 +28,6 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         $permissions = Permission::pluck('name')->toArray();
-
         foreach ($permissions as $permission) {
             Gate::define($permission, function ($user) use ($permission) {
                 return $user->userType->permissions->pluck('name')->contains($permission);

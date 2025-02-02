@@ -116,7 +116,7 @@
                         <input type="checkbox" class="form-check-input" id="rememberMe" name="remember" value="true">
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
-                    <!-- <a href="#" class="text-decoration-none text-muted">Forgot Password?</a> -->
+                    <a href="{{route('register')}}" class="text-decoration-none text-muted">Registration</a>
                 </div>
                 <button type="submit" class="btn btn-login w-100">Login</button>
             </form>

@@ -54,7 +54,7 @@ class SettingController extends Controller
     }
 
     public function update(Request $request, $settingId): RedirectResponse
-    {       
+    {              
         $validated = $this->validate($request, [
             'companyName' => 'required|string|max:255',
             'email' => 'required|email|max:50',
@@ -68,6 +68,9 @@ class SettingController extends Controller
             'linkedin_link' => 'nullable',
             'footer_text' => 'nullable',
             'google_map_link' => 'nullable',
+            'contact_page_banner_text'=>'nullable',
+            'trainer_page_banner_text'=>'nullable',
+            'course_page_banner_text'=>'nullable',            
         ]);
 
         $setting = Setting::query()->first();
@@ -100,6 +103,9 @@ class SettingController extends Controller
                 'linkedin_link' => $validated['linkedin_link'],
                 'footer_text' => $validated['footer_text'],
                 'google_map_link' => $validated['google_map_link'],
+                'contact_page_banner_text' => $validated['contact_page_banner_text'],
+                'trainer_page_banner_text' => $validated['trainer_page_banner_text'],
+                'course_page_banner_text' => $validated['course_page_banner_text'],
             ]);
         }
 

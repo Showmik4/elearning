@@ -23,6 +23,9 @@ class Setting extends Model
         'instagram_link',
         'linkedin_link',
         'footer_text',
-        'google_map_link',     
+        'google_map_link', 
+        'contact_page_banner_text',
+        'trainer_page_banner_text',
+        'course_page_banner_text',    
     ];
 }

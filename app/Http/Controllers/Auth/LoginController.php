@@ -54,12 +54,12 @@ class LoginController extends Controller
     
         if ($user) {
             if (Hash::check($request->password, $user->password) && $user->status == 'active') {
-                Auth::login($user, $request->has('remember'));
+                Auth::login($user, $request->has('remember'));    
+                
+                $previousUrl = Session::get('previous_url', url('/')); 
+                Session::forget('previous_url'); 
     
-                if ($request->session()->get('url.intended')) {
-                    return redirect()->intended();
-                }    
-                return redirect()->route('index');
+                return redirect()->to($previousUrl);
             }
     
             Session::flash('error', 'Invalid Authentication');
@@ -69,5 +69,6 @@ class LoginController extends Controller
         Session::flash('error', 'You are not registered');
         return redirect()->back()->withInput();
     }
+    
     
 }

@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'lastName' => $data['lastName'],        
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'status' => 'inactive',
+            'status' => 'active',
             'fkUserTypeId' => 2
         ]);
     }
@@ -66,6 +66,6 @@ class RegisterController extends Controller
         // Mail::to($user->email)->send(new RegistrationConfirmation($user));
 
         Session::flash('success', 'Registration Successful!');
-        return redirect()->route('registration_confimation');
+        return redirect()->route('login');
     }
 }

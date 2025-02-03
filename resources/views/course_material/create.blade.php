@@ -45,6 +45,12 @@
                                         </div> 
 
                                         <div class="mb-3">
+                                            <label for="field">Description</label><span class="text-danger">*</span>
+                                            <textarea class="form-control" id="" name="description" type="text" placeholder="Enter Description"  required></textarea>
+                                            <span class="text-danger"><b>{{  $errors->first('description') }}</b></span>
+                                        </div> 
+
+                                        <div class="mb-3">
                                             <label for="field">Status</label><span class="text-danger">*</span>
                                             <select class="form-control" name="status">
                                                 <option value="">Select Status</option>                                            
@@ -102,7 +108,8 @@
             },
             columns: [
                 {title: 'ID', data: 'id', name: 'id', className: "text-center", orderable: true, searchable: true},
-                {title: 'Course', data: 'course', name: 'course', className: "text-center", orderable: true, searchable: true},   
+                {title: 'Course', data: 'course', name: 'course', className: "text-center", orderable: true, searchable: true},  
+                {title: 'Description', data: 'description', name: 'description', className: "text-center", orderable: true, searchable: true}, 
                 {title: 'File', data: 'Downloads', name: 'Downloads', className: "text-center", orderable: true, searchable: true},  
                 {title: 'Status', data: 'status', name: 'status', className: "text-center", orderable: true, searchable: true},            
                 { 

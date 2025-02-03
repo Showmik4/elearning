@@ -58,12 +58,14 @@ class CourseMaterialController extends Controller
         $validated = $this->validate($request, [
             'course_id' => 'required', 
             'file'=>'required',  
-            'status'=>'required',        
+            'status'=>'required', 
+            'description'=>'required',       
         ]);
 
         $course_material = CourseMaterial::create([
             'course_id' => $validated['course_id'], 
-            'status'=>$validated['status'],    
+            'status'=>$validated['status'],   
+            'description'=>$validated['description'],  
             'file' => $this->save_image('courseMaterialImage', $validated['file']),         
         ]);         
            
@@ -83,6 +85,7 @@ class CourseMaterialController extends Controller
         $validated = $request->validate([          
             'file'=>'nullable',  
             'status'=>'nullable', 
+            'description'=>'nullable', 
         ]);
        
         $course_material = CourseMaterial::findOrFail($id);       
@@ -94,7 +97,8 @@ class CourseMaterialController extends Controller
             }
            
             $course_material->update([               
-                'status'=>$validated['status'],    
+                'status'=>$validated['status'],   
+                'description'=>$validated['description'],   
                 'file' => $image,               
             ]);
             

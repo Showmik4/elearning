@@ -33,8 +33,8 @@
                             <i class="fa-solid fa-users fa-2x"></i>
                         </div>
                         <div>
-                            <h5 class="fw-bold">Total Users</h5>
-                            <h3>1,234</h3>
+                            <h5 class="fw-bold">Total Trainer</h5>
+                            <h3>{{$totalTrainer}}</h3>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         </div>
                         <div>
                             <h5 class="fw-bold">Total Sales</h5>
-                            <h3>$12,345</h3>
+                            <h3>{{$totalSales}}</h3>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         </div>
                         <div>
                             <h5 class="fw-bold">Total Orders</h5>
-                            <h3>567</h3>
+                            <h3>{{$totalOrders}}</h3>
                         </div>
                     </div>
                 </div>
@@ -75,11 +75,11 @@
                 <div class="card bg-danger text-white shadow-lg rounded-2xl p-4">
                     <div class="card-body d-flex align-items-center">
                         <div class="me-3">
-                            <i class="fa-solid fa-dollar-sign fa-2x"></i>
+                            <i class="fa-solid fa-graduation-cap fa-2x"></i>
                         </div>
                         <div>
-                            <h5 class="fw-bold">Total Revenue</h5>
-                            <h3>$89,567</h3>
+                            <h5 class="fw-bold">Total Course</h5>
+                            <h3>{{$totalCourse}}</h3>
                         </div>
                     </div>
                 </div>

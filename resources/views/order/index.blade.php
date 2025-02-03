@@ -67,29 +67,28 @@
                     {title: 'Student', data: 'user', name: 'user', className: "text-center", orderable: true, searchable: true},              
                     {title: 'Payment Method', data: 'payment_method', name: 'payment_method', className: "text-center", orderable: true, searchable: true},  
                     {title: 'Total Price', data: 'total_price', name: 'total_price', className: "text-center", orderable: true, searchable: true},         
-                //     { 
-                //     title: 'Action', 
-                //     className: "text-center", 
-                //     data: function (data) {
-                //         let buttons = '';                       
+                    { 
+                    title: 'Action', 
+                    className: "text-center", 
+                    data: function (data) {
+                        let buttons = '';                       
                     
-                //         if (data.permissions.includes('about.edit')) {
-                //             buttons += '<a title="edit" class="btn btn-warning btn-sm" data-panel-id="' + data.id + '" onclick="uploadFile(this)"><i class="fa fa-edit"></i></a>';
-                //         }
-                      
-                //         return buttons || 'No Actions Available'; 
-                //     }, 
-                //     orderable: false, 
-                //     searchable: false
-                //  }
+                        if (data.permissions.includes('order.course_details')) {
+                            buttons += '<a title="course material" class="btn btn-warning btn-sm" data-panel-id="' + data.course_id + '" onclick="courseDetails(this)"><i class="fa fa-eye"></i></a>';
+                        }                      
+                        return buttons || 'No Actions Available'; 
+                    }, 
+                    orderable: false, 
+                    searchable: false
+                 }
                 ],              
                 
             });
-        });
-
-        function uploadFile(x) {
+        }); 
+        
+        function courseDetails(x) {
             let btn = $(x).data('panel-id');
-            let url = '{{route("course_mate.edit", ":id") }}';
+            let url = '{{route("order.course_details", ":id") }}';
             window.location.href = url.replace(':id', btn);
         }
       

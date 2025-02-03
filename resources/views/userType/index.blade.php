@@ -61,8 +61,8 @@
                 columns: [
                     {title: 'Role', data: 'typeName', name: 'typeName', className: "text-center", orderable: true, searchable: true},
                     {title: 'Action', className: "text-center", data: function (data) {
-                            return '<a title="edit" class="btn btn-warning btn-sm" data-panel-id="' + data.userTypeId + '" onclick="editUserType(this)"><i class="fa fa-edit"></i></a>'+
-                                ' <a title="delete" class="btn btn-danger btn-sm" data-panel-id="' + data.userTypeId + '" onclick="deleteUserType(this)"><i class="fa fa-trash"></i></a>';
+                            return '<a title="edit" class="btn btn-warning btn-sm" data-panel-id="' + data.userTypeId + '" onclick="editUserType(this)"><i class="fa fa-edit"></i></a>';
+                                
                         }, orderable: false, searchable: false
                     }
                 ]

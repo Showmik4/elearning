@@ -40,8 +40,14 @@
                                         
                                         <div class="mb-3">
                                             <label for="field">File</label><span class="text-danger">*</span>
-                                            <input class="form-control" id="" name="file" type="file" placeholder="Enter Image"  required>
+                                            <input class="form-control" id="" name="file" type="file" placeholder="Enter Image">
                                             <span class="text-danger"><b>{{  $errors->first('file') }}</b></span>
+                                        </div> 
+
+                                        <div class="mb-3">
+                                            <label for="field">Description</label><span class="text-danger">*</span>
+                                            <textarea class="form-control" id="" name="description" type="text" placeholder="Enter Description"  required>{{$course_material->description}}</textarea>
+                                            <span class="text-danger"><b>{{  $errors->first('description') }}</b></span>
                                         </div> 
 
                                         <div class="mb-3">

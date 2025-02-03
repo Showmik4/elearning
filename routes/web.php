@@ -223,9 +223,8 @@ use Illuminate\Support\Facades\Route;
     Route::group(['prefix' => 'order', 'as' => 'order.'], function () {
     Route::get('/show', [OrderController::class, 'show'])->name('show')->middleware('check.permission');
     Route::post('/list', [OrderController::class, 'list'])->name('list'); 
-    // Route::get('edit/{id}', [TeamController::class, 'edit'])->name('edit')->middleware('check.permission');
-    // Route::post('update/{id}', [TeamController::class, 'update'])->name('update');
-    Route::post('delete', [TeamController::class, 'delete'])->name('delete')->middleware('check.permission');
+    Route::get('course_details/{id}', [OrderController::class, 'course_details'])->name('course_details')->middleware('check.permission');
+    Route::post('course_detailsList', [OrderController::class, 'course_detailsList'])->name('course_detailsList');
     });
 
 });

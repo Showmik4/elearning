@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\CourseMaterial;
 use App\Traits\FileTrait;
 use App\Traits\ImageTrait;
 use Illuminate\Http\RedirectResponse;
@@ -79,6 +80,8 @@ class AboutController extends Controller
       
         return redirect()->route('about.show');
     }
+
+  
 
   
 }

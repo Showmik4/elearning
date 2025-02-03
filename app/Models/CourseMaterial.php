@@ -11,7 +11,8 @@ class CourseMaterial extends Model
     public $timestamps = true;
     protected $fillable = [
         'course_id',   
-        'file', 
+        'file',
+        'description', 
         'status',      
     ];
 

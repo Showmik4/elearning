@@ -58,5 +58,4 @@
         Developed By <a href="https://bootstrapmade.com/">{{@$setting->companyName}}</a>
       </div>
     </div>
-
   </footer>

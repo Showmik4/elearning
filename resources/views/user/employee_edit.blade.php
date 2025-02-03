@@ -79,7 +79,7 @@
                                         <span class="text-danger"> <b>{{ $errors->first('fkUserTypeId') }}</b></span>
                                     </div>
 
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="user type">Team</label>
                                         <select class="form-control" name="fk_team_id" id="fk_team_id">
                                             <option value="">Select Team</option>
@@ -88,7 +88,7 @@
                                             @endforeach
                                         </select>
                                         <span class="text-danger"> <b>{{ $errors->first('fk_team_id') }}</b></span>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="mb-3">
                                         <label for="user status">Status</label>

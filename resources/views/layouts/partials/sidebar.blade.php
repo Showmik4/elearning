@@ -28,19 +28,34 @@
                     </li>
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav active"
                         href="{{ route('index') }}"><i data-feather="home"> </i><span>Dashboard</span></a>
-                    </li>               
+                    </li>    
+                    
+                    @can('order.show')
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav active"
+                        href="{{ route('order.show') }}"><i data-feather="home"> </i><span>Orders</span></a>
+                    </li> 
+                    @endcan
+
+                    @can('course.show')
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav active"
+                        href="{{ route('course.show') }}"><i data-feather="home"> </i><span>Course</span></a>
+                    </li> 
+                    @endcan
+
+                    @can('category.show')
+                    <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav active"
+                        href="{{ route('category.show') }}"><i data-feather="home"> </i><span>Category</span></a>
+                    </li> 
+                    @endcan  
                  
                     @canany(['setting.show','user.view-employee','userType.show'])
                     <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="file-text"></i><span>Settings</span></a>
                         <ul class="sidebar-submenu">
                             @can('setting.show')
                             <li><a href="{{ route('setting.show') }}">Setting</a></li>
-                            @endcan
-                            @can('team.show')
-                            <li><a href="{{ route('team.show') }}">Team</a></li>
-                            @endcan
+                            @endcan                          
                             @can('user.view-employee')
-                            <li><a href="{{ route('user.view-employee') }}">Team Member</a></li>
+                            <li><a href="{{ route('user.view-employee') }}">User</a></li>
                             @endcan
                             @can('userType.show')
                             <li><a href="{{ route('userType.show') }}">Role & Permission</a></li>
@@ -48,15 +63,7 @@
 
                             @can('trainer.show')
                             <li><a href="{{ route('trainer.show') }}">Trainer</a></li>
-                            @endcan
-
-                            @can('category.show')
-                            <li><a href="{{ route('category.show') }}">Category</a></li>
-                            @endcan
-
-                            @can('course.show')
-                            <li><a href="{{ route('course.show') }}">Course</a></li>
-                            @endcan
+                            @endcan                                                    
 
                             @can('homepage_settings.show')
                             <li><a href="{{ route('homepage_settings.show') }}">Homepage Settings</a></li>
@@ -68,10 +75,6 @@
 
                             @can('about.show')
                             <li><a href="{{ route('about.show') }}">About</a></li>
-                            @endcan
-
-                            @can('order.show')
-                            <li><a href="{{ route('order.show') }}">Order</a></li>
                             @endcan
                         </ul>
                     </li>

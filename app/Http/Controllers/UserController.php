@@ -116,26 +116,17 @@ class UserController extends Controller
 
     public function employeeList()
     {
-        if(auth()->user()->userType->typeName == 'Line Manager')
-        {
-            $employee = User::with('userType','team')->where('fk_team_id',auth()->user()->fk_team_id)->get();
-        }
-        else
-        {
-            $employee = User::with('userType','team')->get();
-        }
+        $employee = User::with('userType')->get();      
         
         return datatables()->of($employee)
             ->addColumn('role', function (User $employee) {
                 return @$employee->userType->typeName;
             })
-            ->addColumn('team', function (User $employee) {
-                return @$employee->team->name;
-            })
+          
             ->setRowAttr([
                 'align' => 'center',
             ])
-            ->rawColumns(['role','team'])
+            ->rawColumns(['role'])
             ->make(true);
     }   
     public function createEmployee()
@@ -165,7 +156,7 @@ class UserController extends Controller
             'fkUserTypeId' => 'required',
             'email' => 'required|unique:user,email',
             'status'=>'required',
-            'fk_team_id'=>'required',
+            // 'fk_team_id'=>'required',
         ]);
         $user = new User();
         $user->firstName = $data->firstName;
@@ -175,7 +166,7 @@ class UserController extends Controller
         $user->fkuserTypeId = $data->fkUserTypeId;
         $user->password = Hash::make($data->password);
         $user->status=$data->status;  
-        $user->fk_team_id=$data->fk_team_id;      
+        // $user->fk_team_id=$data->fk_team_id;      
         $user->save();
         Session::flash('success', 'Employee Created Successfully!');
         return redirect()->route('user.view-employee');
@@ -198,7 +189,7 @@ class UserController extends Controller
             'email' => 'nullable',
             'fkUserTypeId' => 'nullable',
             'status'=>'nullable',
-            'fk_team_id'=>'nullable',        
+            // 'fk_team_id'=>'nullable',        
         ]);
 
         $user = User::query()->where('userId', $userId)->first();
@@ -211,7 +202,7 @@ class UserController extends Controller
                 'email' => $validated['email'],
                 'fkUserTypeId' =>$validated['fkUserTypeId'],
                 'status' =>$validated['status'], 
-                'fk_team_id'=>$validated['fk_team_id'],               
+                // 'fk_team_id'=>$validated['fk_team_id'],               
             ]);
         }
         Session::flash('success', 'Team Member Updated Successfully!');

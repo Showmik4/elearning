@@ -81,11 +81,11 @@
             <div class="payment-method mt-4">
               <h3>Payment Method</h3>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="payment_method" value="paypal" required>
-                <label class="form-check-label">PayPal</label>
+                <input class="form-check-input" type="radio" name="payment_method" value="Mobile Banking" required>
+                <label class="form-check-label">Mobile Banking</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="payment_method" value="stripe" required>
+                <input class="form-check-input" type="radio" name="payment_method" value="Card" required>
                 <label class="form-check-label">Credit/Debit Card</label>
               </div>
             </div>

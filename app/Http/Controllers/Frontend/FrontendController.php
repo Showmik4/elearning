@@ -31,7 +31,10 @@ class FrontendController extends Controller
     {
         $about=About::query()->first();
         $testimonial=Testimonial::query()->get();
-        return view('frontend.about_us',compact('testimonial','about'));
+        $totalCourse=Course::count();    
+        $totalStudent=User::where('fkUserTypeId',2)->count(); 
+        $totalTrainer=Course::count();  
+        return view('frontend.about_us',compact('testimonial','about','totalCourse','totalStudent','totalTrainer'));
     }
 
     public function course()

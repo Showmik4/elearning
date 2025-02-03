@@ -84,7 +84,7 @@
                                         </div> 
                                         <div class="mb-3">
                                             <label for="name">Schedule</label><span class="text-danger">*</span>
-                                            <input class="form-control" id="" name="schedule" type="text" placeholder="Enter Total Seat" value="{{ $course->schedule }}" required>
+                                            <input class="form-control" id="" name="schedule" type="text" placeholder="Enter Schedule" value="{{ $course->schedule }}" required>
                                             <span class="text-danger"><b>{{  $errors->first('schedule') }}</b></span>
                                         </div> 
                                         <div class="mb-3">

@@ -36,8 +36,7 @@
 
         <div class="row">
           <div class="col-lg-8">
-            <img src="{{ url($course->detail_page_image) }}" class="img-fluid" alt="">
-            
+            <img src="{{ url($course->detail_page_image) }}" class="img-fluid" alt="">          
             
             <p>
               {!!@$course->long_details!!}

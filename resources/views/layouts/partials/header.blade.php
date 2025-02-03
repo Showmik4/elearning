@@ -12,11 +12,11 @@
   <link rel="shortcut icon" href="{{ $setting->logo }}" type="image/x-icon">
   @endif
   @if(\Request::route()->getName() === 'index')
-  <title>Dashboard | Bkash</title>
+  <title>Dashboard | Mentor</title>
   @elseif(\Request::route()->getName() === 'login')
-  <title>Login | Bkash</title>
+  <title>Login | Mentor</title>
   @else
-  <title>@yield('title') | Bkash</title>
+  <title>@yield('title') | Mentor</title>
   @endif
   <!-- Google font-->
   <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap"

@@ -5,9 +5,7 @@
 @endsection
 
 @section('frontend_main.content')
-
 <main class="main">
-
     <!-- Page Tie -->
     <div class="page-title" data-aos="fade">
       <div class="heading">

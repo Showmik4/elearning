@@ -28,6 +28,7 @@
 <script src="{{url('public/assets/js/datepicker/date-picker/datepicker.en.js')}}"></script>
 <script src="{{url('public/assets/js/datepicker/date-picker/datepicker.custom.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 <!-- Plugins JS Ends-->
 
 <!-- Theme js-->

@@ -40,12 +40,12 @@
            <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
             <div class="member-img">
               <img src="{{ url($trainers->image) }}" class="img-fluid" alt="">
-              <div class="social">
+              {{-- <div class="social">
                 <a href="#"><i class="bi bi-twitter-x"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="#"><i class="bi bi-instagram"></i></a>
                 <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
+              </div> --}}
             </div>
             <div class="member-info text-center">
               <h4>{{$trainers->name}}</h4>

@@ -61,10 +61,10 @@
                         d._token = "{{ csrf_token() }}";
                     },
                 },
-                columns: [    
-                    {title: 'banner_short_text', data: 'banner_short_text', name: 'banner_short_text', className: "text-center", orderable: true, searchable: true},               
-                    {title: 'banner_image', data: 'banner_image', name: 'banner_image', className: "text-center", orderable: true, searchable: true},  
-                    {title: 'about_image', data: 'about_image', name: 'about_image', className: "text-center", orderable: true, searchable: true},                           
+                columns: [   
+                             
+                    {title: 'Banner Image', data: 'banner_image', name: 'banner_image', className: "text-center", orderable: true, searchable: true},  
+                    {title: 'About Image', data: 'about_image', name: 'about_image', className: "text-center", orderable: true, searchable: true},                           
                     { 
                     title: 'Action', 
                     className: "text-center", 

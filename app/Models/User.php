@@ -28,10 +28,10 @@ class User extends Authenticatable
         'phone',
         'password',
         'fkUserTypeId',
-        'username',
-        'fk_country_id',
-        'fk_industry_id',
-        'fk_team_id',
+        // 'username',
+        // 'fk_country_id',
+        // 'fk_industry_id',
+        // 'fk_team_id',
         'status',
     ];
 
@@ -59,8 +59,8 @@ class User extends Authenticatable
         return $this->hasOne(UserType::class, 'userTypeId', 'fkUserTypeId');
     }
 
-    public function team()
-    {
-        return $this->belongsTo(Team::class, 'fk_team_id', 'id');
-    }
+    // public function team()
+    // {
+    //     return $this->belongsTo(Team::class, 'fk_team_id', 'id');
+    // }
 }

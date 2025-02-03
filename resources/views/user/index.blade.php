@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title'){{ 'Employee' }}@endsection
+@section('title'){{ 'Users' }}@endsection
 @section('header.css')
 <style>
 
@@ -11,14 +11,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>Team Members</h3>
+                    <h3>Users</h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
                         {{-- <li class="breadcrumb-item"><a href="{{ route('index') }}"><i class="fa fa-home"></i></a>
                         </li> --}}
                         <li class="breadcrumb-item">Settings</li>
-                        <li class="breadcrumb-item active">Teams Members</li>
+                        <li class="breadcrumb-item active">All Users</li>
                     </ol>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     {title: 'Phone', data:'phone', name: 'phone', className: "text-center", orderable: true, searchable: true},   
                     {title: 'Email', data:'email', name: 'email', className: "text-center", orderable: true, searchable: true},   
                     {title: 'Role', data: 'role', name: 'role', className: "text-center", orderable: true, searchable: true}, 
-                    {title: 'Team', data: 'team', name: 'team', className: "text-center", orderable: true, searchable: true},    
+                    // {title: 'Team', data: 'team', name: 'team', className: "text-center", orderable: true, searchable: true},    
                     {title: 'Action', className: "text-center", data: function (data) {
                         return '<a title="edit" class="btn btn-warning btn-sm" data-panel-id="' + data.userId + '" onclick="editEmployee(this)"><i class="fa fa-edit"></i></a>'+
                             ' <a title="delete" class="btn btn-danger btn-sm" data-panel-id="' + data.userId + '" onclick="deleteEmployee(this)"><i class="fa fa-trash"></i></a>';

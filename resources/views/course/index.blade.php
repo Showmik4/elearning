@@ -80,7 +80,7 @@
                         }
 
                         if (data.permissions.includes('course_material.create')) {
-                            buttons += ' <a title="course material" class="btn btn-danger btn-sm" data-panel-id="' + data.id + '" onclick="uploadFile(this)"><i class="fa fa-trash"></i></a>';
+                            buttons += ' <a title="course material" class="btn btn-primary btn-sm" data-panel-id="' + data.id + '" onclick="uploadFile(this)"><i class="fa fa-plus"></i></a>';
                         }
                         return buttons || 'No Actions Available'; 
                     }, 

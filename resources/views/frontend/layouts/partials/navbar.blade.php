@@ -1,12 +1,8 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+      <a href="{{route('homepage')}}" class="logo d-flex align-items-center me-auto">       
         <h1 class="sitename">Mentor</h1>
       </a>
-
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{route('homepage')}}" class="{{ request()->routeIs('homepage') ? 'active' : '' }}">Home<br></a></li>
@@ -41,9 +37,6 @@
           @endauth
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      {{-- <a class="btn-getstarted" href="courses.html">Get Started</a> --}}
-
+      </nav>     
     </div>
   </header>

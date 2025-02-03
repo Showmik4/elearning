@@ -10,6 +10,7 @@ use App\Models\HomePageSettings;
 use App\Models\Order;
 use App\Models\Testimonial;
 use App\Models\Trainer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -19,8 +20,11 @@ class FrontendController extends Controller
     {
         $home=HomePageSettings::first();
         $course=Course::with('trainer','category')->get();
-        $trainer=Trainer::query()->get();       
-        return view('frontend.home',compact('home','course','trainer'));
+        $trainer=Trainer::query()->get();  
+        $totalCourse=Course::count();    
+        $totalStudent=User::where('fkUserTypeId',2)->count(); 
+        $totalTrainer=Course::count();  
+        return view('frontend.home',compact('home','course','trainer','totalCourse','totalStudent','totalTrainer'));
     }
 
     public function aboutus()

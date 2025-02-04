@@ -2,14 +2,14 @@
 <div class="sidebar-wrapper" style="height: 100%;background-color:#ffffff">
     <div>
         <div class="logo-wrapper">
-            <a href="{{ route('index') }}">
+            <a href="{{ route('homepage') }}">
                 <img class="img-fluid for-light" src="{{ url(@$setting->logo) }}" style="height:80px" alt="">
                 <img class="img-fluid for-dark" src="{{ url(@$setting->logo) }}" style="height:80px" alt="">
             </a>
             <div class="back-btn"><i class="fa fa-angle-left"></i></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"></i></div>
         </div>
-        <div class="logo-icon-wrapper"><a href="{{ route('index') }}"><img class="img-fluid"
+        <div class="logo-icon-wrapper"><a href="{{ route('homepage') }}"><img class="img-fluid"
                     src="{{url($setting->logo ?? $setting->logo)}}" style="height: 50px" alt=""></a></div>
         <nav class="sidebar-main">
             <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>

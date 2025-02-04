@@ -46,9 +46,9 @@
                 <div class="col-md-12">
                   <input type="text" name="phone" class="form-control" value="{{auth()->user()->phone}}" placeholder="Phone Number" readonly>
                 </div>
-                <div class="col-md-12">
+                {{-- <div class="col-md-12">
                   <input type="text" name="address" class="form-control" value="{{auth()->user()->address}}" placeholder="Billing Address" readonly>
-                </div>
+                </div> --}}
                 @endauth
                 <div class="col-md-12">
                   <textarea class="form-control" name="note" rows="4" placeholder="Additional Notes (Optional)"></textarea>

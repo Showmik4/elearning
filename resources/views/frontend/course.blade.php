@@ -32,7 +32,7 @@
       <div class="container">
         <div class="row">
           @foreach ($course as $courses)
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="course-item">
               <a href="{{ route('course_details', ['id' => $courses->id]) }}">
               <img src="{{ url($courses->image) }}" class="img-fluid" alt="...">

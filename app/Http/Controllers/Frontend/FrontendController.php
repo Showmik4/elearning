@@ -40,6 +40,7 @@ class FrontendController extends Controller
     public function course()
     {
         $course=Course::with('category','trainer')->get();
+        // dd($course);
         return view('frontend.course',compact('course'));
     }
 

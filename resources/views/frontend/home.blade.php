@@ -25,11 +25,8 @@
 
     <!-- About Section -->
     <section id="about" class="about section">
-
       <div class="container">
-
         <div class="row gy-4">
-
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
             <img src="{{ url($home->about_image) }}" class="img-fluid" alt="">
           </div>
@@ -57,11 +54,8 @@
 
     <!-- Counts Section -->
     <section id="counts" class="section counts light-background">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
-
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="{{@$totalStudent}}" data-purecounter-duration="1" class="purecounter"></span>
@@ -161,7 +155,7 @@
       <div class="container">
         <div class="row">
           @foreach ($course as $courses)
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">            
+          <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">            
             <div class="course-item">
                 <a href="{{ route('course_details', ['id' => $courses->id]) }}">
               <img src="{{ url($courses->image) }}" class="img-fluid" alt="...">

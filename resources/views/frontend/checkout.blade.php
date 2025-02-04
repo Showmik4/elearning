@@ -20,7 +20,7 @@
       <nav class="breadcrumbs">
         <div class="container">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{route('homepage')}}">Home</a></li>
             <li class="current">Checkout</li>
           </ol>
         </div>

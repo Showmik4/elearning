@@ -63,7 +63,7 @@
                 },
                 columns: [
                     {title: 'ID', data: 'id', name: 'id', className: "text-center", orderable: true, searchable: true},  
-                    // {title: 'Banner', data: 'banner_description', name: 'banner_description', className: "text-center", orderable: true, searchable: true},                 
+                    // {title: 'Banner', data: 'banner_description', name: 'banner_description', className: "text-center", orderable: true, searchable: },                 
                     {title: 'Image', data: 'image', name: 'image', className: "text-center", orderable: true, searchable: true},            
                     { 
                     title: 'Action', 
